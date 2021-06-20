@@ -1,5 +1,24 @@
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
 .header {
   text-align: center;
-  background-color: blue;
+  background: linear-gradient(0.25turn, rgb(82, 153, 219), 40%, rgb(3, 3, 87));
   color: white;
+}
+
+.search-btn {
+  color: white;
+  background: rgb(106, 162, 236);
+}
+
+.search-btn {
+  border-radius: 4px;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.search-window input {
+  width: 100%;
 }
