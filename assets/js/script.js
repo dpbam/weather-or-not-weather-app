@@ -26,3 +26,12 @@
 // labelElem.appendChild(inputElem);
 
 // document.body.appendChild(labelElem);
+
+fetch(
+  "https://api.openweathermap.org/data/2.5/weather?q=" +
+    city +
+    "&units=metric&appid=" +
+    apiKey
+)
+  .then((response) => response.json())
+  .then((data) => this.displayWeather(data));
