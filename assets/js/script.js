@@ -9,29 +9,35 @@
 // elem.classList.add("heading");
 // elem.id = "newDiv";
 // elem.setAttribute("option", "test");
+const currentDate = moment();
+var city = "";
 
-// const profileImg = document.createElement("img");
-// profileImg.src = "http://placekitten.com/200/300";
-// document.body.appendChild(profileImg);
-// profileImg.style.width = "50px";
+document.getElementById("currentDate").innerHTML =
+  currentDate.format("MM/DD/YYYY");
 
-// const inputElem = document.createElement("input");
+let weather = {
+  apiKey: "6e6ec74027adce6a58ed16bac77822ab",
+  fetchWeather: function (city) {
+    fetch(
+      "http://api.openweathermap.org/data/2.5/weather?q=" +
+        city +
+        "&units=imperial&appid=" +
+        this.apiKey
+    )
+      .then((response) => response.json())
+      .then((data) => this.displayWeather(data));
+  },
+  displayWeather: function (data) {
+    const { name } = data;
+    const { icon } = data.weather[0];
+    const { temp, humidity } = data.main;
+    const { speed } = data.wind;
+    console.log(name, icon, temp, humidity, speed);
+    document.querySelector(".city").innerText =
+      name + "(" + "#currentDate" + ")";
+    // document.querySelector(".icon").src =
+    //   "https://openweathermap.org/img/wn/" + icon + ".png";
+  },
+};
 
-// inputElem.type = "checkbox";
-
-// const labelElem = document.createElement("label");
-// const labelText = document.createTextNode("Click Me");
-
-// labelElem.appendChild(labelText);
-// labelElem.appendChild(inputElem);
-
-// document.body.appendChild(labelElem);
-
-fetch(
-  "https://api.openweathermap.org/data/2.5/weather?q=" +
-    city +
-    "&units=metric&appid=" +
-    apiKey
-)
-  .then((response) => response.json())
-  .then((data) => this.displayWeather(data));
+// document.getElementsByClassName("city-name").innerHTML =
