@@ -41,7 +41,6 @@ let weather = {
       .then((data) => this.displayWeather(data));
   },
   displayWeather: function (data) {
-    console.log(data);
     this.displayTodaysWeather(data);
 
     forecast.fetchForecast(data.coord.lat, data.coord.lon);
@@ -52,7 +51,6 @@ let weather = {
     const { icon } = data.weather[0];
     const { temp, humidity } = data.main;
     const { speed } = data.wind;
-    console.log(name, icon, temp, humidity, speed);
     document.querySelector(".city").innerText = name;
 
     document.querySelector(".icon").src =
@@ -69,12 +67,10 @@ var searchButton = document.querySelector(".search-btn");
 function searchHandler(clickEvent) {
   clickEvent.preventDefault();
   var city = document.getElementById("city-name").value;
-  console.log(city);
   weather.fetchWeather(city); // city is an argument
 
   document.getElementById("currentDate").innerHTML =
     currentDate.format("[ (]MM/DD/YYYY[)]");
-  console.log(document.getElementById("currentDate"));
 }
 
 // line 64 is a better way to write functions. the name is to the right of 'function' rather than below, it's attached to a variable
@@ -82,25 +78,15 @@ function searchHandler(clickEvent) {
 
 var searchForm = document.querySelector("#search");
 
-// document
-//   .querySelector("#city-name")
-//   .addEventListener("keyup", function (event) {
-//     event.preventDefault();
-//     console.log(event.key);
-//     // if (event.key == "Enter") {
-//     //   weather.fetchWeather(city);
-//     // }
-//   });
-
 let forecast = {
   apiKey: "6e6ec74027adce6a58ed16bac77822ab",
-  fetchForecast: function (lat, lon) {
+  fetchForecast: function (city, cnt) {
     fetch(
-      "https://api.openweathermap.org/data/2.5/onecall?lat=" +
-        lat +
-        "&lon=" +
-        lon +
-        "&exclude=current,minutely,hourly,alerts&appid=" +
+      "http://api.openweathermap.org/data/2.5/forecast/daily?q=" +
+        city +
+        "&cnt=" +
+        5 +
+        "&appid=" +
         this.apiKey
     )
       .then((response) => response.json())
@@ -108,7 +94,16 @@ let forecast = {
   },
 
   displayForecast: function (data) {
-    console.log(data);
+    const { icon1 } = data.weather[0];
+    const { speed1 } = data.wind;
+    const { temp1, humidity1 } = data.main;
+
+    document.querySelector(".icon1").src =
+      "https://openweathermap.org/img/wn/" + icon + ".png";
+    document.querySelector(".temp1").innerText = "Temp: " + temp + "°F";
+    document.querySelector(".wind1").innerText = "Wind speed: " + speed + "MPH";
+    document.querySelector(".humidity1").innerText =
+      "Humidity: " + humidity + "%";
   },
 };
 
