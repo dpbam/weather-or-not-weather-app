@@ -11,9 +11,6 @@
 .search-btn {
   color: white;
   background: rgb(106, 162, 236);
-}
-
-.search-btn {
   border-radius: 4px;
   border: none;
   width: 100%;
@@ -27,4 +24,8 @@
 
 .city {
   font-size: 2rem;
+}
+
+#city-name {
+  width: 100%;
 }

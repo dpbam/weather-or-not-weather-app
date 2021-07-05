@@ -10,6 +10,7 @@
 // elem.id = "newDiv";
 // elem.setAttribute("option", "test");
 const currentDate = moment();
+const apiKey = "6e6ec74027adce6a58ed16bac77822ab";
 const dayOne = moment().add(1, "day");
 const dayTwo = moment().add(2, "day");
 const dayThree = moment().add(3, "day");
@@ -17,6 +18,8 @@ const dayFour = moment().add(4, "day");
 const dayFive = moment().add(5, "day");
 
 var city = "";
+var lat = "";
+var lon = "";
 
 // document.getElementById("currentDate").innerHTML =
 //   currentDate.format("[ (]MM/DD/YYYY[)]");
@@ -28,7 +31,6 @@ document.getElementById("day-four").innerHTML = dayFour.format("MM/DD/YYYY");
 document.getElementById("day-five").innerHTML = dayFive.format("MM/DD/YYYY");
 
 let weather = {
-  apiKey: "6e6ec74027adce6a58ed16bac77822ab",
   fetchWeather: function (x) {
     // (x) Parameter
     fetch(
@@ -79,15 +81,11 @@ function searchHandler(clickEvent) {
 var searchForm = document.querySelector("#search");
 
 let forecast = {
-  apiKey: "6e6ec74027adce6a58ed16bac77822ab",
-  fetchForecast: function (city, cnt) {
+  // apiKey: "6e6ec74027adce6a58ed16bac77822ab",
+  fetchForecast: function () {
     fetch(
-      "http://api.openweathermap.org/data/2.5/forecast/daily?q=" +
-        city +
-        "&cnt=" +
-        5 +
-        "&appid=" +
-        this.apiKey
+      "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=current,minutely,hourly,alerts&appid=" +
+        apiKey
     )
       .then((response) => response.json())
       .then((data) => this.displayForecast(data));
