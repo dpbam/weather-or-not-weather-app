@@ -29,3 +29,8 @@
 #city-name {
   width: 100%;
 }
+
+.card-body {
+  color: white;
+  background: rgb(51, 70, 91);
+}

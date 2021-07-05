@@ -37,7 +37,7 @@ let weather = {
       "http://api.openweathermap.org/data/2.5/weather?q=" +
         x +
         "&units=imperial&appid=" +
-        this.apiKey
+        apiKey
     )
       .then((response) => response.json())
       .then((data) => this.displayWeather(data));
@@ -82,9 +82,13 @@ var searchForm = document.querySelector("#search");
 
 let forecast = {
   // apiKey: "6e6ec74027adce6a58ed16bac77822ab",
-  fetchForecast: function () {
+  fetchForecast: function (lat, lon) {
     fetch(
-      "https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude=current,minutely,hourly,alerts&appid=" +
+      "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+        lat +
+        "&lon=" +
+        lon +
+        "&units=imperial&appid=" +
         apiKey
     )
       .then((response) => response.json())
@@ -92,21 +96,58 @@ let forecast = {
   },
 
   displayForecast: function (data) {
-    const { icon1 } = data.weather[0];
-    const { speed1 } = data.wind;
-    const { temp1, humidity1 } = data.main;
+    console.log("displayWeatherForecase ", data);
+    const icon1 = data.daily[0].weather[0].icon;
+    const speed1 = data.daily[0].wind_speed;
+    const temp1 = data.daily[0].temp.day;
+    const humidity1 = data.daily[0].humidity;
+
+    // iterate over the days
 
     document.querySelector(".icon1").src =
-      "https://openweathermap.org/img/wn/" + icon + ".png";
-    document.querySelector(".temp1").innerText = "Temp: " + temp + "°F";
-    document.querySelector(".wind1").innerText = "Wind speed: " + speed + "MPH";
+      "https://openweathermap.org/img/wn/" + icon1 + ".png";
+    document.querySelector(".temp1").innerText = "Temp: " + temp1 + "°F";
+    document.querySelector(".wind1").innerText =
+      "Wind speed: " + speed1 + "MPH";
     document.querySelector(".humidity1").innerText =
-      "Humidity: " + humidity + "%";
+      "Humidity: " + humidity1 + "%";
+
+    console.log("displayWeatherForecase ", data);
+    const icon2 = data.daily[1].weather[0].icon;
+    const speed2 = data.daily[1].wind_speed;
+    const temp2 = data.daily[1].temp.day;
+    const humidity2 = data.daily[1].humidity;
+
+    // iterate over the days
+
+    document.querySelector(".icon2").src =
+      "https://openweathermap.org/img/wn/" + icon2 + ".png";
+    document.querySelector(".temp2").innerText = "Temp: " + temp2 + "°F";
+    document.querySelector(".wind2").innerText =
+      "Wind speed: " + speed2 + "MPH";
+    document.querySelector(".humidity2").innerText =
+      "Humidity: " + humidity2 + "%";
   },
 };
 
 // https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
 // has the uv index here so
 
-// searchButton.addEventListener("click", searchHandler);
 searchForm.addEventListener("submit", searchHandler);
+
+// function sum(x, y) {
+//   // num1 , num2 are parameters that represent the arguments being passed at time of execution
+//   var total = x + y;
+
+//   double(total); // total is an argument // execution double
+// }
+
+// function double(x) {
+//   // x is a parameter
+//   console.log(x * 2);
+// }
+
+// console.log(x);
+
+// sum(10, 20); /// 10 , 20 are arguments
+// sum(30, 40);
