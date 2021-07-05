@@ -127,6 +127,54 @@ let forecast = {
       "Wind speed: " + speed2 + "MPH";
     document.querySelector(".humidity2").innerText =
       "Humidity: " + humidity2 + "%";
+
+    console.log("displayWeatherForecase ", data);
+    const icon3 = data.daily[2].weather[0].icon;
+    const speed3 = data.daily[2].wind_speed;
+    const temp3 = data.daily[2].temp.day;
+    const humidity3 = data.daily[2].humidity;
+
+    // iterate over the days
+
+    document.querySelector(".icon3").src =
+      "https://openweathermap.org/img/wn/" + icon3 + ".png";
+    document.querySelector(".temp3").innerText = "Temp: " + temp3 + "°F";
+    document.querySelector(".wind3").innerText =
+      "Wind speed: " + speed3 + "MPH";
+    document.querySelector(".humidity2").innerText =
+      "Humidity: " + humidity3 + "%";
+
+    console.log("displayWeatherForecase ", data);
+    const icon4 = data.daily[3].weather[0].icon;
+    const speed4 = data.daily[3].wind_speed;
+    const temp4 = data.daily[3].temp.day;
+    const humidity4 = data.daily[3].humidity;
+
+    // iterate over the days
+
+    document.querySelector(".icon4").src =
+      "https://openweathermap.org/img/wn/" + icon4 + ".png";
+    document.querySelector(".temp4").innerText = "Temp: " + temp4 + "°F";
+    document.querySelector(".wind4").innerText =
+      "Wind speed: " + speed4 + "MPH";
+    document.querySelector(".humidity4").innerText =
+      "Humidity: " + humidity4 + "%";
+
+    console.log("displayWeatherForecase ", data);
+    const icon5 = data.daily[4].weather[0].icon;
+    const speed5 = data.daily[4].wind_speed;
+    const temp5 = data.daily[4].temp.day;
+    const humidity5 = data.daily[4].humidity;
+
+    // iterate over the days
+
+    document.querySelector(".icon5").src =
+      "https://openweathermap.org/img/wn/" + icon5 + ".png";
+    document.querySelector(".temp5").innerText = "Temp: " + temp5 + "°F";
+    document.querySelector(".wind5").innerText =
+      "Wind speed: " + speed5 + "MPH";
+    document.querySelector(".humidity5").innerText =
+      "Humidity: " + humidity5 + "%";
   },
 };
 
