@@ -1,14 +1,3 @@
-// use moment.js to get the dates for displaying the weather on today AND the five day forcast
-// const elem = document.createElement("div");
-// const elemText = document.createTextNode("This is a div");
-
-// elem.appendChild(elemText);
-
-// document.body.appendChild(elem);
-
-// elem.classList.add("heading");
-// elem.id = "newDiv";
-// elem.setAttribute("option", "test");
 const currentDate = moment();
 const apiKey = "6e6ec74027adce6a58ed16bac77822ab";
 const dayOne = moment().add(1, "day");
@@ -18,11 +7,6 @@ const dayFour = moment().add(4, "day");
 const dayFive = moment().add(5, "day");
 
 var city = "";
-var lat = "";
-var lon = "";
-
-// document.getElementById("currentDate").innerHTML =
-//   currentDate.format("[ (]MM/DD/YYYY[)]");
 
 document.getElementById("day-one").innerHTML = dayOne.format("MM/DD/YYYY");
 document.getElementById("day-two").innerHTML = dayTwo.format("MM/DD/YYYY");
@@ -44,6 +28,7 @@ let weather = {
   },
   displayWeather: function (data) {
     this.displayTodaysWeather(data);
+    // console.log("displayTodaysWeather: ", data);
 
     forecast.fetchForecast(data.coord.lat, data.coord.lon);
   },
@@ -61,6 +46,7 @@ let weather = {
     document.querySelector(".wind").innerText = "Wind speed: " + speed + "MPH";
     document.querySelector(".humidity").innerText =
       "Humidity: " + humidity + "%";
+    // document.querySelector(".uvIndex").innerText = "uv index: " + uvi;
   },
 };
 
@@ -75,13 +61,9 @@ function searchHandler(clickEvent) {
     currentDate.format("[ (]MM/DD/YYYY[)]");
 }
 
-// line 64 is a better way to write functions. the name is to the right of 'function' rather than below, it's attached to a variable
-// var searchHandler = function (clickEvent) {};
-
 var searchForm = document.querySelector("#search");
 
 let forecast = {
-  // apiKey: "6e6ec74027adce6a58ed16bac77822ab",
   fetchForecast: function (lat, lon) {
     fetch(
       "https://api.openweathermap.org/data/2.5/onecall?lat=" +
@@ -102,8 +84,6 @@ let forecast = {
     const temp1 = data.daily[0].temp.day;
     const humidity1 = data.daily[0].humidity;
 
-    // iterate over the days
-
     document.querySelector(".icon1").src =
       "https://openweathermap.org/img/wn/" + icon1 + ".png";
     document.querySelector(".temp1").innerText = "Temp: " + temp1 + "°F";
@@ -112,13 +92,10 @@ let forecast = {
     document.querySelector(".humidity1").innerText =
       "Humidity: " + humidity1 + "%";
 
-    console.log("displayWeatherForecase ", data);
     const icon2 = data.daily[1].weather[0].icon;
     const speed2 = data.daily[1].wind_speed;
     const temp2 = data.daily[1].temp.day;
     const humidity2 = data.daily[1].humidity;
-
-    // iterate over the days
 
     document.querySelector(".icon2").src =
       "https://openweathermap.org/img/wn/" + icon2 + ".png";
@@ -134,8 +111,6 @@ let forecast = {
     const temp3 = data.daily[2].temp.day;
     const humidity3 = data.daily[2].humidity;
 
-    // iterate over the days
-
     document.querySelector(".icon3").src =
       "https://openweathermap.org/img/wn/" + icon3 + ".png";
     document.querySelector(".temp3").innerText = "Temp: " + temp3 + "°F";
@@ -149,8 +124,6 @@ let forecast = {
     const speed4 = data.daily[3].wind_speed;
     const temp4 = data.daily[3].temp.day;
     const humidity4 = data.daily[3].humidity;
-
-    // iterate over the days
 
     document.querySelector(".icon4").src =
       "https://openweathermap.org/img/wn/" + icon4 + ".png";
@@ -166,8 +139,6 @@ let forecast = {
     const temp5 = data.daily[4].temp.day;
     const humidity5 = data.daily[4].humidity;
 
-    // iterate over the days
-
     document.querySelector(".icon5").src =
       "https://openweathermap.org/img/wn/" + icon5 + ".png";
     document.querySelector(".temp5").innerText = "Temp: " + temp5 + "°F";
@@ -178,24 +149,4 @@ let forecast = {
   },
 };
 
-// https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}
-// has the uv index here so
-
 searchForm.addEventListener("submit", searchHandler);
-
-// function sum(x, y) {
-//   // num1 , num2 are parameters that represent the arguments being passed at time of execution
-//   var total = x + y;
-
-//   double(total); // total is an argument // execution double
-// }
-
-// function double(x) {
-//   // x is a parameter
-//   console.log(x * 2);
-// }
-
-// console.log(x);
-
-// sum(10, 20); /// 10 , 20 are arguments
-// sum(30, 40);
