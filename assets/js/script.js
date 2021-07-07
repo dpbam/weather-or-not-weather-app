@@ -18,7 +18,7 @@ let weather = {
   fetchWeather: function (x) {
     // (x) Parameter
     fetch(
-      "http://api.openweathermap.org/data/2.5/weather?q=" +
+      "https://api.openweathermap.org/data/2.5/weather?q=" +
         x +
         "&units=imperial&appid=" +
         apiKey
