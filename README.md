@@ -26,7 +26,7 @@ This was a very hard challenge for me with several moving parts. I had trouble w
 
 # Website image
 
-<img width="1075" alt="Screen Shot 2021-07-07 at 10 10 54 AM" src="https://user-images.githubusercontent.com/82355287/124793917-b341cb80-df0b-11eb-93ac-68e669ef15e0.png">
+<img width="1379" alt="Screen Shot 2021-07-07 at 11 26 49 AM" src="https://user-images.githubusercontent.com/82355287/124803429-5697de00-df16-11eb-933e-73413917411a.png">
 
 # Links
 
