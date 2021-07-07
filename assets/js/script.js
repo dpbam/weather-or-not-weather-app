@@ -141,7 +141,7 @@ let forecast = {
     document.querySelector(".temp3").innerText = "Temp: " + temp3 + "°F";
     document.querySelector(".wind3").innerText =
       "Wind speed: " + speed3 + "MPH";
-    document.querySelector(".humidity2").innerText =
+    document.querySelector(".humidity3").innerText =
       "Humidity: " + humidity3 + "%";
 
     console.log("displayWeatherForecase ", data);
