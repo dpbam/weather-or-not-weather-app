@@ -38,8 +38,10 @@ let weather = {
     const { icon } = data.weather[0];
     const { temp, humidity } = data.main;
     const { speed } = data.wind;
-    document.querySelector(".city").innerText = name;
+    console.log(data);
+    // const { uvi } = data.uvi;
 
+    document.querySelector(".city").innerText = name;
     document.querySelector(".icon").src =
       "https://openweathermap.org/img/wn/" + icon + ".png";
     document.querySelector(".temp").innerText = "Temp: " + temp + "°F";
@@ -77,12 +79,35 @@ let forecast = {
       .then((data) => this.displayForecast(data));
   },
 
+  uvIndex: function (current) {
+    // in the current object we're pulling out uvi
+    const { uvi } = current;
+    document.querySelector(".uvIndex").innerText = uvi;
+
+    if (uvi < 2) {
+      document.querySelector(".uvIndex").style.backgroundColor = "green";
+      document.querySelector(".uvIndex").style.color = "white";
+    }
+    if (2 < uvi < 7) {
+      document.querySelector(".uvIndex").style.backgroundColor = "orange";
+      document.querySelector(".uvIndex").style.color = "white";
+    }
+    if (uvi > 7) {
+      document.querySelector(".uvIndex").style.backgroundColor = "purple";
+      document.querySelector(".uvIndex").style.color = "white";
+    }
+  },
+
   displayForecast: function (data) {
-    console.log("displayWeatherForecase ", data);
+    console.log("displayWeatherForecast: ", data);
     const icon1 = data.daily[0].weather[0].icon;
     const speed1 = data.daily[0].wind_speed;
     const temp1 = data.daily[0].temp.day;
     const humidity1 = data.daily[0].humidity;
+    const uvi = data.current.uvi;
+    console.log("uvi: ", uvi);
+
+    this.uvIndex(data.current);
 
     document.querySelector(".icon1").src =
       "https://openweathermap.org/img/wn/" + icon1 + ".png";
