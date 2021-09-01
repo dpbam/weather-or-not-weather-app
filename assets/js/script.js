@@ -14,6 +14,12 @@ document.getElementById("day-three").innerHTML = dayThree.format("MM/DD/YYYY");
 document.getElementById("day-four").innerHTML = dayFour.format("MM/DD/YYYY");
 document.getElementById("day-five").innerHTML = dayFive.format("MM/DD/YYYY");
 
+var savedCities = JSON.parse(localStorage.getItem("cities")) || [];
+console.log(savedCities);
+
+// store the value of the city in localStorage
+// document.getElementById("city-name").value = localStorage.getItem(city);
+
 let weather = {
   fetchWeather: function (x) {
     // (x) Parameter
@@ -61,8 +67,19 @@ function searchHandler(clickEvent) {
 
   document.getElementById("currentDate").innerHTML =
     currentDate.format("[ (]MM/DD/YYYY[)]");
+
+  // console.log(savedCities);
+  savedCities.push(city);
+  localStorage.setItem("cities", JSON.stringify(savedCities));
 }
 
+for (var i = 0; i < savedCities.length; i++) {
+  var cityItem = $("<button>");
+  cityItem.attr("data-cityname", savedCities[i]);
+  cityItem.addClass("city-class");
+  cityItem.text(savedCities[i]);
+  $("city-div").append(savedCities[i]);
+}
 var searchForm = document.querySelector("#search");
 
 let forecast = {
