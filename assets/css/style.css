@@ -30,7 +30,26 @@
   width: 100%;
 }
 
+.city-btn {
+  color: white;
+  background: rgb(236, 156, 106);
+  border-radius: 4px;
+  border: none;
+  width: 260px;
+  height: 100%;
+  margin-top: 10px;
+}
+
 .card-body {
   color: white;
   background: rgb(51, 70, 91);
+}
+
+.card {
+  border: 0px;
+}
+
+div.card-today.weather-today.col-9 {
+  border: 1px;
+  border-color: black;
 }

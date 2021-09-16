@@ -9,6 +9,7 @@
         integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Whether Or Not Weather App</title>
 </head>
@@ -31,10 +32,8 @@
                     </form>
                 </div>
             </div>
-            <div class="city-div">
-                <button></button>
-            </div>
-            <div class="card weather-today col-9">
+            
+            <div class="card-today weather-today col-9">
                 <div class="weather">
                     <div class="city">Your City</div>
                     <div id="currentDate"></div>
@@ -44,6 +43,9 @@
                     <div class="humidity">Humidity:</div>
                     <div >uv index: <span class="uvIndex"></span></div>
                 </div>
+            </div>
+            <div class="city-div" id="city-div">
+                <!-- <button class="city-btn"></button> -->
             </div>
         </div>
     </div>
@@ -99,7 +101,6 @@
             </div>
         </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script src="./assets/js/script.js"></script>
 </body>

@@ -69,17 +69,26 @@ function searchHandler(clickEvent) {
     currentDate.format("[ (]MM/DD/YYYY[)]");
 
   // console.log(savedCities);
-  savedCities.push(city);
-  localStorage.setItem("cities", JSON.stringify(savedCities));
+  if ((savedCities = false)) {
+    savedCities.push(city);
+    localStorage.setItem("cities", JSON.stringify(savedCities));
+  }
+
+  for (var i = 0; i < savedCities.length; i++) {
+    var cityItem = $("<button>");
+    cityItem.attr("data-cityname", savedCities[i]);
+    cityItem.addClass("city-class");
+    cityItem.text(savedCities[i]);
+    $("city-div").append(savedCities[i]);
+  }
+
+  var cityButton = document.createElement("BUTTON");
+  console.log(cityButton);
+  cityButton.innerText = "Peoria";
+  cityButton.classList = "city-btn";
+  document.getElementById("city-div").appendChild(cityButton);
 }
 
-for (var i = 0; i < savedCities.length; i++) {
-  var cityItem = $("<button>");
-  cityItem.attr("data-cityname", savedCities[i]);
-  cityItem.addClass("city-class");
-  cityItem.text(savedCities[i]);
-  $("city-div").append(savedCities[i]);
-}
 var searchForm = document.querySelector("#search");
 
 let forecast = {
