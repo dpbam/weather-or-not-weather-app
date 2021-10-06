@@ -57,7 +57,6 @@ let weather = {
     document.querySelector('.wind').innerText = 'Wind speed: ' + speed + 'MPH';
     document.querySelector('.humidity').innerText =
       'Humidity: ' + humidity + '%';
-    // document.querySelector(".uvIndex").innerText = "uv index: " + uvi;
   },
 };
 
@@ -86,10 +85,10 @@ function searchHandler(clickEvent) {
   console.log('savedCities', savedCities[i]);
 
   var cityButton = document.createElement('BUTTON');
-  cityButton.innerText = 'Peoria';
-  // console.log('savedCities', savedCities);
+  cityButton.innerText = `${city}`;
   cityButton.classList = 'city-btn col-3';
   document.getElementById('city-div').appendChild(cityButton);
+  document.getElementById('city-btn').onclick = searchHandler();
 }
 
 var searchForm = document.querySelector('#search');
