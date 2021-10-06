@@ -15,7 +15,6 @@ document.getElementById('day-four').innerHTML = dayFour.format('MM/DD/YYYY');
 document.getElementById('day-five').innerHTML = dayFive.format('MM/DD/YYYY');
 
 var savedCities = JSON.parse(localStorage.getItem('cities')) || [];
-console.log(savedCities);
 
 // store the value of the city in localStorage
 // document.getElementById("city-name").value = localStorage.getItem(city);
@@ -82,13 +81,12 @@ function searchHandler(clickEvent) {
     cityItem.text(savedCities[i]);
     $('city-div').append(savedCities[i]);
   }
-  console.log('savedCities', savedCities[i]);
 
   var cityButton = document.createElement('BUTTON');
   cityButton.innerText = `${city}`;
-  cityButton.classList = 'city-btn col-3';
+  cityButton.classList = 'city-btn col-12';
   document.getElementById('city-div').appendChild(cityButton);
-  document.getElementById('city-btn').onclick = searchHandler();
+  document.getElementsByClassName('city-btn').onclick = searchHandler;
 }
 
 var searchForm = document.querySelector('#search');
