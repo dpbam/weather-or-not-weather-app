@@ -86,10 +86,9 @@ function searchHandler(clickEvent) {
   console.log('savedCities', savedCities[i]);
 
   var cityButton = document.createElement('BUTTON');
-  // console.log(cityButton);
-  cityButton.innerText = `${cityButton}`;
+  cityButton.innerText = 'Peoria';
   // console.log('savedCities', savedCities);
-  cityButton.classList = 'city-btn';
+  cityButton.classList = 'city-btn col-3';
   document.getElementById('city-div').appendChild(cityButton);
 }
 
