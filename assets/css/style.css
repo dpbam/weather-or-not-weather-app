@@ -22,14 +22,13 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
+.search-for-a-city {
+  height: 70px;
+}
+
 .city {
   font-size: 2rem;
 }
-
-/* .city-div {
-  width: 10rem;
-  height: 2rem;
-} */
 
 #city-name {
   width: 100%;
@@ -40,7 +39,6 @@
   background: rgb(236, 156, 106);
   border-radius: 4px;
   border: none;
-  /* width: 100%; */
   height: 30px;
   margin-top: 10px;
 }
@@ -58,3 +56,7 @@ div.card-today.weather-today.col-9 {
   border: 1px;
   border-color: black;
 }
+
+/* .five-day-forecast {
+  display: none;
+} */

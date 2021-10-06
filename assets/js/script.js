@@ -77,7 +77,7 @@ function searchHandler(clickEvent) {
   for (var i = 0; i < savedCities.length; i++) {
     var cityItem = $('<button>');
     cityItem.attr('data-cityname', savedCities[i]);
-    cityItem.addClass('city-class');
+    cityItem.setAttribute('class', 'city-btn');
     cityItem.text(savedCities[i]);
     $('city-div').append(savedCities[i]);
   }
