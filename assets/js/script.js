@@ -1,32 +1,38 @@
 const currentDate = moment();
-const apiKey = "6e6ec74027adce6a58ed16bac77822ab";
-const dayOne = moment().add(1, "day");
-const dayTwo = moment().add(2, "day");
-const dayThree = moment().add(3, "day");
-const dayFour = moment().add(4, "day");
-const dayFive = moment().add(5, "day");
+const apiKey = '6e6ec74027adce6a58ed16bac77822ab';
+const dayOne = moment().add(1, 'day');
+const dayTwo = moment().add(2, 'day');
+const dayThree = moment().add(3, 'day');
+const dayFour = moment().add(4, 'day');
+const dayFive = moment().add(5, 'day');
 
-var city = "";
+var city = '';
 
-document.getElementById("day-one").innerHTML = dayOne.format("MM/DD/YYYY");
-document.getElementById("day-two").innerHTML = dayTwo.format("MM/DD/YYYY");
-document.getElementById("day-three").innerHTML = dayThree.format("MM/DD/YYYY");
-document.getElementById("day-four").innerHTML = dayFour.format("MM/DD/YYYY");
-document.getElementById("day-five").innerHTML = dayFive.format("MM/DD/YYYY");
+document.getElementById('day-one').innerHTML = dayOne.format('MM/DD/YYYY');
+document.getElementById('day-two').innerHTML = dayTwo.format('MM/DD/YYYY');
+document.getElementById('day-three').innerHTML = dayThree.format('MM/DD/YYYY');
+document.getElementById('day-four').innerHTML = dayFour.format('MM/DD/YYYY');
+document.getElementById('day-five').innerHTML = dayFive.format('MM/DD/YYYY');
 
-var savedCities = JSON.parse(localStorage.getItem("cities")) || [];
+var savedCities = JSON.parse(localStorage.getItem('cities')) || [];
 console.log(savedCities);
 
 // store the value of the city in localStorage
 // document.getElementById("city-name").value = localStorage.getItem(city);
 
+// get that city name back
+
+// put it on a new button
+
+// put an onClick on that button so you can search again.
+
 let weather = {
   fetchWeather: function (x) {
     // (x) Parameter
     fetch(
-      "https://api.openweathermap.org/data/2.5/weather?q=" +
+      'https://api.openweathermap.org/data/2.5/weather?q=' +
         x +
-        "&units=imperial&appid=" +
+        '&units=imperial&appid=' +
         apiKey
     )
       .then((response) => response.json())
@@ -34,7 +40,6 @@ let weather = {
   },
   displayWeather: function (data) {
     this.displayTodaysWeather(data);
-    // console.log("displayTodaysWeather: ", data);
 
     forecast.fetchForecast(data.coord.lat, data.coord.lon);
   },
@@ -44,61 +49,60 @@ let weather = {
     const { icon } = data.weather[0];
     const { temp, humidity } = data.main;
     const { speed } = data.wind;
-    console.log(data);
-    // const { uvi } = data.uvi;
 
-    document.querySelector(".city").innerText = name;
-    document.querySelector(".icon").src =
-      "https://openweathermap.org/img/wn/" + icon + ".png";
-    document.querySelector(".temp").innerText = "Temp: " + temp + "°F";
-    document.querySelector(".wind").innerText = "Wind speed: " + speed + "MPH";
-    document.querySelector(".humidity").innerText =
-      "Humidity: " + humidity + "%";
+    document.querySelector('.city').innerText = name;
+    document.querySelector('.icon').src =
+      'https://openweathermap.org/img/wn/' + icon + '.png';
+    document.querySelector('.temp').innerText = 'Temp: ' + temp + '°F';
+    document.querySelector('.wind').innerText = 'Wind speed: ' + speed + 'MPH';
+    document.querySelector('.humidity').innerText =
+      'Humidity: ' + humidity + '%';
     // document.querySelector(".uvIndex").innerText = "uv index: " + uvi;
   },
 };
 
-var searchButton = document.querySelector(".search-btn");
+var searchButton = document.querySelector('.search-btn');
 
 function searchHandler(clickEvent) {
   clickEvent.preventDefault();
-  var city = document.getElementById("city-name").value;
+  var city = document.getElementById('city-name').value;
   weather.fetchWeather(city); // city is an argument
 
-  document.getElementById("currentDate").innerHTML =
-    currentDate.format("[ (]MM/DD/YYYY[)]");
+  document.getElementById('currentDate').innerHTML =
+    currentDate.format('[ (]MM/DD/YYYY[)]');
 
-  // console.log(savedCities);
   if ((savedCities = false)) {
     savedCities.push(city);
-    localStorage.setItem("cities", JSON.stringify(savedCities));
+    localStorage.setItem('cities', JSON.stringify(savedCities));
   }
 
   for (var i = 0; i < savedCities.length; i++) {
-    var cityItem = $("<button>");
-    cityItem.attr("data-cityname", savedCities[i]);
-    cityItem.addClass("city-class");
+    var cityItem = $('<button>');
+    cityItem.attr('data-cityname', savedCities[i]);
+    cityItem.addClass('city-class');
     cityItem.text(savedCities[i]);
-    $("city-div").append(savedCities[i]);
+    $('city-div').append(savedCities[i]);
   }
+  console.log('savedCities', savedCities[i]);
 
-  var cityButton = document.createElement("BUTTON");
-  console.log(cityButton);
-  cityButton.innerText = "Peoria";
-  cityButton.classList = "city-btn";
-  document.getElementById("city-div").appendChild(cityButton);
+  var cityButton = document.createElement('BUTTON');
+  // console.log(cityButton);
+  cityButton.innerText = `${cityButton}`;
+  // console.log('savedCities', savedCities);
+  cityButton.classList = 'city-btn';
+  document.getElementById('city-div').appendChild(cityButton);
 }
 
-var searchForm = document.querySelector("#search");
+var searchForm = document.querySelector('#search');
 
 let forecast = {
   fetchForecast: function (lat, lon) {
     fetch(
-      "https://api.openweathermap.org/data/2.5/onecall?lat=" +
+      'https://api.openweathermap.org/data/2.5/onecall?lat=' +
         lat +
-        "&lon=" +
+        '&lon=' +
         lon +
-        "&units=imperial&appid=" +
+        '&units=imperial&appid=' +
         apiKey
     )
       .then((response) => response.json())
@@ -108,96 +112,91 @@ let forecast = {
   uvIndex: function (current) {
     // in the current object we're pulling out uvi
     const { uvi } = current;
-    document.querySelector(".uvIndex").innerText = uvi;
+    document.querySelector('.uvIndex').innerText = uvi;
 
     if (uvi < 2) {
-      document.querySelector(".uvIndex").style.backgroundColor = "green";
-      document.querySelector(".uvIndex").style.color = "white";
+      document.querySelector('.uvIndex').style.backgroundColor = 'green';
+      document.querySelector('.uvIndex').style.color = 'white';
     }
     if (2 < uvi < 7) {
-      document.querySelector(".uvIndex").style.backgroundColor = "orange";
-      document.querySelector(".uvIndex").style.color = "white";
+      document.querySelector('.uvIndex').style.backgroundColor = 'orange';
+      document.querySelector('.uvIndex').style.color = 'white';
     }
     if (uvi > 7) {
-      document.querySelector(".uvIndex").style.backgroundColor = "purple";
-      document.querySelector(".uvIndex").style.color = "white";
+      document.querySelector('.uvIndex').style.backgroundColor = 'purple';
+      document.querySelector('.uvIndex').style.color = 'white';
     }
   },
 
   displayForecast: function (data) {
-    console.log("displayWeatherForecast: ", data);
     const icon1 = data.daily[0].weather[0].icon;
     const speed1 = data.daily[0].wind_speed;
     const temp1 = data.daily[0].temp.day;
     const humidity1 = data.daily[0].humidity;
     const uvi = data.current.uvi;
-    console.log("uvi: ", uvi);
 
     this.uvIndex(data.current);
 
-    document.querySelector(".icon1").src =
-      "https://openweathermap.org/img/wn/" + icon1 + ".png";
-    document.querySelector(".temp1").innerText = "Temp: " + temp1 + "°F";
-    document.querySelector(".wind1").innerText =
-      "Wind speed: " + speed1 + "MPH";
-    document.querySelector(".humidity1").innerText =
-      "Humidity: " + humidity1 + "%";
+    document.querySelector('.icon1').src =
+      'https://openweathermap.org/img/wn/' + icon1 + '.png';
+    document.querySelector('.temp1').innerText = 'Temp: ' + temp1 + '°F';
+    document.querySelector('.wind1').innerText =
+      'Wind speed: ' + speed1 + 'MPH';
+    document.querySelector('.humidity1').innerText =
+      'Humidity: ' + humidity1 + '%';
 
     const icon2 = data.daily[1].weather[0].icon;
     const speed2 = data.daily[1].wind_speed;
     const temp2 = data.daily[1].temp.day;
     const humidity2 = data.daily[1].humidity;
 
-    document.querySelector(".icon2").src =
-      "https://openweathermap.org/img/wn/" + icon2 + ".png";
-    document.querySelector(".temp2").innerText = "Temp: " + temp2 + "°F";
-    document.querySelector(".wind2").innerText =
-      "Wind speed: " + speed2 + "MPH";
-    document.querySelector(".humidity2").innerText =
-      "Humidity: " + humidity2 + "%";
+    document.querySelector('.icon2').src =
+      'https://openweathermap.org/img/wn/' + icon2 + '.png';
+    document.querySelector('.temp2').innerText = 'Temp: ' + temp2 + '°F';
+    document.querySelector('.wind2').innerText =
+      'Wind speed: ' + speed2 + 'MPH';
+    document.querySelector('.humidity2').innerText =
+      'Humidity: ' + humidity2 + '%';
 
-    console.log("displayWeatherForecase ", data);
     const icon3 = data.daily[2].weather[0].icon;
     const speed3 = data.daily[2].wind_speed;
     const temp3 = data.daily[2].temp.day;
     const humidity3 = data.daily[2].humidity;
 
-    document.querySelector(".icon3").src =
-      "https://openweathermap.org/img/wn/" + icon3 + ".png";
-    document.querySelector(".temp3").innerText = "Temp: " + temp3 + "°F";
-    document.querySelector(".wind3").innerText =
-      "Wind speed: " + speed3 + "MPH";
-    document.querySelector(".humidity3").innerText =
-      "Humidity: " + humidity3 + "%";
+    document.querySelector('.icon3').src =
+      'https://openweathermap.org/img/wn/' + icon3 + '.png';
+    document.querySelector('.temp3').innerText = 'Temp: ' + temp3 + '°F';
+    document.querySelector('.wind3').innerText =
+      'Wind speed: ' + speed3 + 'MPH';
+    document.querySelector('.humidity3').innerText =
+      'Humidity: ' + humidity3 + '%';
 
-    console.log("displayWeatherForecase ", data);
     const icon4 = data.daily[3].weather[0].icon;
     const speed4 = data.daily[3].wind_speed;
     const temp4 = data.daily[3].temp.day;
     const humidity4 = data.daily[3].humidity;
 
-    document.querySelector(".icon4").src =
-      "https://openweathermap.org/img/wn/" + icon4 + ".png";
-    document.querySelector(".temp4").innerText = "Temp: " + temp4 + "°F";
-    document.querySelector(".wind4").innerText =
-      "Wind speed: " + speed4 + "MPH";
-    document.querySelector(".humidity4").innerText =
-      "Humidity: " + humidity4 + "%";
+    document.querySelector('.icon4').src =
+      'https://openweathermap.org/img/wn/' + icon4 + '.png';
+    document.querySelector('.temp4').innerText = 'Temp: ' + temp4 + '°F';
+    document.querySelector('.wind4').innerText =
+      'Wind speed: ' + speed4 + 'MPH';
+    document.querySelector('.humidity4').innerText =
+      'Humidity: ' + humidity4 + '%';
 
-    console.log("displayWeatherForecase ", data);
     const icon5 = data.daily[4].weather[0].icon;
     const speed5 = data.daily[4].wind_speed;
     const temp5 = data.daily[4].temp.day;
     const humidity5 = data.daily[4].humidity;
 
-    document.querySelector(".icon5").src =
-      "https://openweathermap.org/img/wn/" + icon5 + ".png";
-    document.querySelector(".temp5").innerText = "Temp: " + temp5 + "°F";
-    document.querySelector(".wind5").innerText =
-      "Wind speed: " + speed5 + "MPH";
-    document.querySelector(".humidity5").innerText =
-      "Humidity: " + humidity5 + "%";
+    document.querySelector('.icon5').src =
+      'https://openweathermap.org/img/wn/' + icon5 + '.png';
+    document.querySelector('.temp5').innerText = 'Temp: ' + temp5 + '°F';
+    document.querySelector('.wind5').innerText =
+      'Wind speed: ' + speed5 + 'MPH';
+    document.querySelector('.humidity5').innerText =
+      'Humidity: ' + humidity5 + '%';
   },
 };
 
-searchForm.addEventListener("submit", searchHandler);
+searchForm.addEventListener('submit', searchHandler);
