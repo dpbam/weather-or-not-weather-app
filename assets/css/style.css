@@ -43,6 +43,13 @@
   margin-top: 10px;
 }
 
+.weather {
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  padding-left: 2rem;
+}
+
 .card-body {
   color: white;
   background: rgb(51, 70, 91);
@@ -57,6 +64,10 @@ div.card-today.weather-today.col-9 {
   border-color: black;
 }
 
-/* .five-day-forecast {
-  display: none;
+.five-day-forecast {
+  margin-left: 450px;
+}
+
+/* .five-day-forecast h2 {
+  margin-left: 2rem;
 } */

@@ -61,7 +61,7 @@ let weather = {
 
 var searchButton = document.querySelector('.search-btn');
 
-function searchHandler(clickEvent) {
+var searchHandler = function (clickEvent) {
   clickEvent.preventDefault();
   var city = document.getElementById('city-name').value;
   weather.fetchWeather(city); // city is an argument
@@ -69,7 +69,7 @@ function searchHandler(clickEvent) {
   document.getElementById('currentDate').innerHTML =
     currentDate.format('[ (]MM/DD/YYYY[)]');
 
-  if ((savedCities = false)) {
+  if (savedCities === false) {
     savedCities.push(city);
     localStorage.setItem('cities', JSON.stringify(savedCities));
   }
@@ -87,7 +87,7 @@ function searchHandler(clickEvent) {
   cityButton.classList = 'city-btn col-12';
   document.getElementById('city-div').appendChild(cityButton);
   document.getElementsByClassName('city-btn').onclick = searchHandler;
-}
+};
 
 var searchForm = document.querySelector('#search');
 
