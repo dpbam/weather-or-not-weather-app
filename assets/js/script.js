@@ -88,9 +88,7 @@ var searchHandler = function (clickEvent) {
   document.getElementById('city-div').appendChild(cityButton);
   // why does the below not work for searching based on that city?
   // is it because I need to grab the city name ON that button?
-  document.getElementsByClassName('city-btn').onclick = searchHandler(
-    savedCities[i]
-  );
+  document.getElementsByClassName('city-btn').onclick = searchHandler(city);
 };
 
 var searchForm = document.querySelector('#search');

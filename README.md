@@ -26,7 +26,7 @@ This page uses moment.js to get the current and future dates. Also, it uses a co
 
 # Website image
 
-<img width="1379" alt="Screen Shot 2021-07-07 at 11 26 49 AM" src="https://user-images.githubusercontent.com/82355287/124803429-5697de00-df16-11eb-933e-73413917411a.png">
+![weather](https://user-images.githubusercontent.com/82355287/142685172-ca089987-b775-474f-994b-ba59f47ddfd4.png)
 
 # GitHub
 
