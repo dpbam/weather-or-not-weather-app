@@ -3,6 +3,10 @@
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+body {
+  background-color: #e8ecee;
+}
+
 .header {
   text-align: center;
   background: linear-gradient(0.25turn, rgb(82, 219, 185), 40%, rgb(3, 3, 87));
@@ -25,6 +29,7 @@
 
 .search-for-a-city {
   height: 70px;
+  padding-top: 2rem;
 }
 
 .city {
@@ -50,6 +55,8 @@
   border-width: 2px;
   padding: 2rem;
   border-radius: 4px;
+  margin-top: 2rem;
+  background-color: white;
 }
 
 .card-body {
@@ -59,6 +66,7 @@
 
 .card {
   border: 0px;
+  background-color: #e8ecee;
 }
 
 div.card-today.weather-today.col-9 {
@@ -67,7 +75,7 @@ div.card-today.weather-today.col-9 {
 }
 
 .five-day-forecast {
-  margin-left: 450px;
+  margin-left: 36rem;
 }
 
 /* .five-day-forecast h2 {
