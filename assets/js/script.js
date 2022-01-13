@@ -59,6 +59,41 @@ let weather = {
   },
 };
 
+function toggleWeather() {
+  // get the .weather div
+  var myWeather = document.getElementById('weather')
+  var myForecast = document.getElementById('five-day-forecast')
+
+  // get the current value of the weather's display property
+  var displaySetting = myWeather.style.display;
+  var displaySettingForecast = myForecast.style.display;
+
+  // also get the weather search button, so we can change what it says
+  var searchButton = document.getElementById('searchButton');
+
+  // now toggle the search and the button text, depending on the current state
+  if (displaySetting == 'block') {
+    // weather is visible. hide it
+    myWeather.style.display = 'block';
+    // change button text
+    searchButton.innerHTML = 'Search';
+  }
+  else {
+    // weather is hidden. show it
+    myWeather.style.display = 'block';
+    // change button text
+    searchButton.innerHTML = 'Search';
+  }
+  if (displaySettingForecast == 'block') {
+    myForecast.style.display = 'block';
+    searchButton.innerHTML = 'Search';
+  }
+  else {
+    myForecast.style.display = 'block';
+    searchButton.innerHTML = 'Search';
+  }
+}
+
 var searchButton = document.querySelector('.search-btn');
 
 var searchHandler = function (clickEvent) {
