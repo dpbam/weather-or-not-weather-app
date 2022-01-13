@@ -7,10 +7,18 @@ body {
   background-color: #e8ecee;
 }
 
+h1 {
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 3rem;
+}
+
 .header {
   text-align: center;
   background: linear-gradient(0.25turn, rgb(82, 219, 185), 40%, rgb(3, 3, 87));
   color: white;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
 }
 
 .search-btn {
@@ -34,6 +42,7 @@ body {
 
 .city {
   font-size: 2rem;
+  /* display: none; */
 }
 
 #city-name {
@@ -50,13 +59,10 @@ body {
 }
 
 .weather {
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
   padding: 2rem;
   border-radius: 4px;
-  margin-top: 2rem;
-  background-color: white;
+  margin-top: 4rem;
+  background-color: rgb(156, 210, 238);
 }
 
 .card-body {
@@ -67,6 +73,7 @@ body {
 .card {
   border: 0px;
   background-color: #e8ecee;
+  width: 15rem;
 }
 
 div.card-today.weather-today.col-9 {
@@ -75,9 +82,16 @@ div.card-today.weather-today.col-9 {
 }
 
 .five-day-forecast {
-  margin-left: 36rem;
+  float: right;
 }
 
-/* .five-day-forecast h2 {
-  margin-left: 2rem;
-} */
+.five-day-forecast h2 {
+  display: block;
+}
+
+.day-card {
+  font-size: 1.25rem;
+}
+
+@media (max-width: 1280px) {
+}
