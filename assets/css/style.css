@@ -126,7 +126,7 @@ svg {
 .five-day-forecast h2 {
   display: block;
   padding-top: 3rem;
-  padding-left: 5rem;
+  padding-left: 3rem;
 }
 
 .day-card {
@@ -135,20 +135,23 @@ svg {
 }
 
 @media (max-width: 1280px) {
+  .five-day-forecast {
+    width: 100%;
+  }
 }
 
 @media (max-width: 1024px) {
   .day-card {
-    font-size: 1rem;
+    /* font-size: 1rem; */
   }
   #temp-forecast {
-    font-size: 0.75rem;
+    font-size: 0.6rem;
   }
   #wind-forecast {
-    font-size: 0.75rem;
+    font-size: 0.6rem;
   }
   #humidity-forecast {
-    font-size: 0.75rem;
+    font-size: 0.6rem;
   }
 }
 
@@ -157,7 +160,50 @@ svg {
   .city-btn {
     margin-left: 2rem;
   }
+  .search-column {
+    width: 30%;
+    padding-right: 0;
+  }
+  .weather {
+    margin-left: 3.4rem;
+  }
+  .weather-today {
+    width: 96%;
+  }
+  .forecast-cards {
+    display: flex;
+    flex-direction: column;
+  }
+  .card-body {
+    margin: 0.5rem;
+  }
 }
 
 @media (max-width: 640px) {
+  .weather-today {
+    width: 95%;
+  }
+}
+@media (max-width: 500px) {
+  .weather-today {
+    width: 93%;
+  }
+}
+@media (max-width: 281px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .city {
+    font-size: 1.5rem;
+  }
+  .weather-today {
+    width: 90%;
+  }
+  .icon {
+    width: 3rem;
+  }
+  .temp,
+  .wind {
+    font-size: 0.5rem;
+  }
 }

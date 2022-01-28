@@ -8,11 +8,11 @@ const dayFive = moment().add(5, 'day');
 
 var city = '';
 
-document.getElementById('day-one').innerHTML = dayOne.format('MM/DD/YYYY');
-document.getElementById('day-two').innerHTML = dayTwo.format('MM/DD/YYYY');
-document.getElementById('day-three').innerHTML = dayThree.format('MM/DD/YYYY');
-document.getElementById('day-four').innerHTML = dayFour.format('MM/DD/YYYY');
-document.getElementById('day-five').innerHTML = dayFive.format('MM/DD/YYYY');
+document.getElementById('day-one').innerHTML = dayOne.format('MM/DD');
+document.getElementById('day-two').innerHTML = dayTwo.format('MM/DD');
+document.getElementById('day-three').innerHTML = dayThree.format('MM/DD');
+document.getElementById('day-four').innerHTML = dayFour.format('MM/DD');
+document.getElementById('day-five').innerHTML = dayFive.format('MM/DD');
 
 var savedCities = JSON.parse(localStorage.getItem('cities')) || [];
 
