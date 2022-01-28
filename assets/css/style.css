@@ -10,7 +10,7 @@ body {
 .two-colums {
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 h1 {
@@ -43,7 +43,7 @@ h1 {
   background: rgb(106, 162, 236);
   border-radius: 4px;
   border: none;
-  margin-top: 10px;
+  margin-top: 1rem;
   margin-bottom: 2rem;
 }
 
@@ -55,7 +55,8 @@ svg {
 .search-column {
   display: flex;
   flex-direction: column;
-  width: 15%;
+  width: 20%;
+  padding-right: 2rem;
 }
 
 .search-window input {
@@ -80,9 +81,9 @@ svg {
   background: rgb(236, 156, 106);
   border-radius: 4px;
   border: none;
-  height: 30px;
-  margin-top: 10px;
+  height: 2rem;
   margin-left: 4rem;
+  margin-bottom: 0.5rem;
   width: 100%;
 }
 
@@ -95,7 +96,7 @@ svg {
 .weather {
   padding: 2rem;
   border-radius: 4px;
-  margin-top: 4rem;
+  margin-top: 3.25rem;
   margin-left: 3rem;
   background-color: rgb(156, 210, 238);
   display: none;
@@ -112,14 +113,14 @@ svg {
   background-color: #e8ecee;
 }
 
-div.card-today.weather-today.col-9 {
-  border: 1px;
-  border-color: black;
+.weather-today {
+  width: 80%;
 }
 
 .five-day-forecast {
   display: none;
-  margin-right: 1.8rem;
+  width: 90%;
+  padding-left: 2.25rem;
 }
 
 .five-day-forecast h2 {
@@ -137,9 +138,25 @@ div.card-today.weather-today.col-9 {
 }
 
 @media (max-width: 1024px) {
+  .day-card {
+    font-size: 1rem;
+  }
+  #temp-forecast {
+    font-size: 0.75rem;
+  }
+  #wind-forecast {
+    font-size: 0.75rem;
+  }
+  #humidity-forecast {
+    font-size: 0.75rem;
+  }
 }
 
 @media (max-width: 768px) {
+  .search-block,
+  .city-btn {
+    margin-left: 2rem;
+  }
 }
 
 @media (max-width: 640px) {

@@ -119,7 +119,7 @@ var searchHandler = function (clickEvent) {
 
   var cityButton = document.createElement('BUTTON');
   cityButton.innerText = `${city}`;
-  cityButton.classList = 'city-btn col-12';
+  cityButton.classList = 'city-btn';
   document.getElementById('city-div').appendChild(cityButton);
   // why does the below not work for searching based on that city?
   // is it because I need to grab the city name ON that button?
