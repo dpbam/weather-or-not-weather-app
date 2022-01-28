@@ -125,7 +125,7 @@ div.card-today.weather-today.col-9 {
 .five-day-forecast h2 {
   display: block;
   padding-top: 3rem;
-  padding-left: 4rem;
+  padding-left: 5rem;
 }
 
 .day-card {
@@ -134,4 +134,13 @@ div.card-today.weather-today.col-9 {
 }
 
 @media (max-width: 1280px) {
+}
+
+@media (max-width: 1024px) {
+}
+
+@media (max-width: 768px) {
+}
+
+@media (max-width: 640px) {
 }
