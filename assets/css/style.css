@@ -189,6 +189,11 @@ svg {
     width: 93%;
   }
 }
+@media (max-width: 376px) {
+  .five-day-forecast h2 {
+    padding-left: 2rem;
+  }
+}
 @media (max-width: 281px) {
   h1 {
     font-size: 2rem;
@@ -205,5 +210,8 @@ svg {
   .temp,
   .wind {
     font-size: 0.5rem;
+  }
+  .five-day-forecast h2 {
+    padding-left: 3rem;
   }
 }
