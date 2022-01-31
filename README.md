@@ -1,4 +1,4 @@
-# Whether or Not Weather App
+# Weather or Not Weather App
 
 ## This weather application will allow a user to search a city and provide the current day's weather as well as the forecast for 5 days in the future.
 
