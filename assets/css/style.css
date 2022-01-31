@@ -45,6 +45,11 @@ h1 {
   border: none;
   margin-top: 1rem;
   margin-bottom: 2rem;
+  box-shadow: 2px 4px 4px gray;
+}
+
+.search-btn:hover {
+  box-shadow: none;
 }
 
 svg {
@@ -85,6 +90,11 @@ svg {
   margin-left: 4rem;
   margin-bottom: 0.5rem;
   width: 100%;
+  box-shadow: 2px 4px 4px gray;
+}
+
+.city-btn:hover {
+  box-shadow: none;
 }
 
 .today-and-forecast {
@@ -132,6 +142,9 @@ svg {
 .day-card {
   font-size: 1.25rem;
   border-radius: 5px;
+}
+
+footer {
 }
 
 @media (max-width: 1280px) {
