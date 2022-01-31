@@ -110,12 +110,14 @@ svg {
   margin-left: 3rem;
   background-color: rgb(156, 210, 238);
   display: none;
+  box-shadow: 2px 4px 4px gray;
 }
 
 .card-body {
   color: white;
   background: rgb(51, 70, 91);
   border-radius: 4px;
+  box-shadow: 2px 4px 4px gray;
 }
 
 .card {
