@@ -147,6 +147,24 @@ svg {
 }
 
 footer {
+  background: linear-gradient(0.25turn, rgb(82, 219, 185), 40%, rgb(3, 3, 87));
+  height: 5rem;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.footer-copyright {
+  display: flex;
+}
+
+.footer-copyright h3 {
+  padding: 1rem;
+}
+
+.fa-copyright {
+  font-size: 2rem;
+  padding-top: 1rem;
 }
 
 @media (max-width: 1280px) {

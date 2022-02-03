@@ -61,8 +61,8 @@ let weather = {
 
 function toggleWeather() {
   // get the .weather div
-  var myWeather = document.getElementById('weather')
-  var myForecast = document.getElementById('five-day-forecast')
+  var myWeather = document.getElementById('weather');
+  var myForecast = document.getElementById('five-day-forecast');
 
   // get the current value of the weather's display property
   var displaySetting = myWeather.style.display;
@@ -77,8 +77,7 @@ function toggleWeather() {
     myWeather.style.display = 'block';
     // change button text
     searchButton.innerHTML = 'Search';
-  }
-  else {
+  } else {
     // weather is hidden. show it
     myWeather.style.display = 'block';
     // change button text
@@ -87,8 +86,7 @@ function toggleWeather() {
   if (displaySettingForecast == 'block') {
     myForecast.style.display = 'block';
     searchButton.innerHTML = 'Search';
-  }
-  else {
+  } else {
     myForecast.style.display = 'block';
     searchButton.innerHTML = 'Search';
   }
@@ -123,7 +121,7 @@ var searchHandler = function (clickEvent) {
   document.getElementById('city-div').appendChild(cityButton);
   // why does the below not work for searching based on that city?
   // is it because I need to grab the city name ON that button?
-  document.getElementsByClassName('city-btn').onclick = searchHandler(city);
+  document.getElementsByClassName('city-name').onclick = searchHandler(city);
 };
 
 var searchForm = document.querySelector('#search');
