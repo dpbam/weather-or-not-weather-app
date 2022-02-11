@@ -27,6 +27,10 @@ h1 {
   padding-bottom: 2rem;
 }
 
+.search-label {
+  display: none;
+}
+
 .search-block {
   width: 100%;
   margin-left: 4rem;
@@ -61,7 +65,7 @@ svg {
   display: flex;
   flex-direction: column;
   width: 20%;
-  padding-right: 2rem;
+  margin-right: 5rem;
 }
 
 .search-window input {
@@ -149,10 +153,12 @@ svg {
 footer {
   background: linear-gradient(0.25turn, rgb(82, 219, 185), 40%, rgb(3, 3, 87));
   height: 5rem;
+  width: 100%;
   color: white;
   display: flex;
   justify-content: flex-end;
-  margin-top: 10rem;
+  position: absolute;
+  bottom: 0;
 }
 
 .footer-copyright {

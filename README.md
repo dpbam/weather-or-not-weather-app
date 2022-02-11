@@ -4,7 +4,7 @@
 
 This page uses moment.js to get the current and future dates. Also, it uses a combination of the Current Day weather api https://openweathermap.org/current and then extracts the longitude and latitude from the city to use the One Call weather API https://openweathermap.org/api/one-call-api for the forecast.
 
-## Click [here](https://dpbam.github.io/whether-or-not-weather-app/) for the live app.
+## Click [here](https://dpbam.github.io/weather-or-not-weather-app/) for the live app.
 
 ## This webpage is built with
 
@@ -30,4 +30,4 @@ This page uses moment.js to get the current and future dates. Also, it uses a co
 
 # GitHub
 
-https://github.com/dpbam/whether-or-not-weather-app
+https://github.com/dpbam/weather-or-not-weather-app
