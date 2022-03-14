@@ -3,6 +3,10 @@
     Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+html {
+  height: 100vh;
+}
+
 body {
   background-color: #e8ecee;
 }
@@ -131,6 +135,7 @@ svg {
 
 .weather-today {
   width: 80%;
+  height: 60%;
 }
 
 .five-day-forecast {
