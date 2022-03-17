@@ -102,7 +102,7 @@ var searchHandler = function (clickEvent) {
   document.getElementById('currentDate').innerHTML =
     currentDate.format('[ (]MM/DD/YYYY[)]');
 
-  if (savedCities === false) {
+  if (!savedCities.length) {
     savedCities.push(city);
     localStorage.setItem('cities', JSON.stringify(savedCities));
   }
@@ -121,8 +121,16 @@ var searchHandler = function (clickEvent) {
   document.getElementById('city-div').appendChild(cityButton);
   // why does the below not work for searching based on that city?
   // is it because I need to grab the city name ON that button?
-  document.getElementsByClassName('city-btn').innerHTML.onclick =
-    searchHandler(city);
+  // document.getElementsByClassName('city-btn').innerHTML.onclick = searchHandler(
+  //   'click',
+  //   city
+  // );
+  // document.getElementsByClassName('city-btn').innerText.searchHandler(city);
+  $(document).ready(function () {
+    document
+      .getElementByClassName('city-btn')
+      .addEventListener('click', searchHandler);
+  });
 };
 
 var searchForm = document.querySelector('#search');
