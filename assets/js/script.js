@@ -102,7 +102,7 @@ var searchHandler = function (clickEvent) {
   document.getElementById('currentDate').innerHTML =
     currentDate.format('[ (]MM/DD/YYYY[)]');
 
-  if (!savedCities.length) {
+  if (savedCities.length) {
     savedCities.push(city);
     localStorage.setItem('cities', JSON.stringify(savedCities));
   }
@@ -113,13 +113,14 @@ var searchHandler = function (clickEvent) {
     var cityItem = document.getElementById('city-btn');
     if (cityItem) {
       cityItem.attr('data-cityname', savedCities[i]);
-      cityItem.setAttribute('id', 'city-btn');
+      cityItem.setAttribute('class', 'city-btn');
       cityItem.text(savedCities[i]);
       $('city-div').append(savedCities[i]);
     }
   }
 
   var cityButton = document.createElement('BUTTON');
+  console.log(cityButton);
   cityButton.innerText = `${city}`;
   cityButton.classList = 'city-btn';
   document.getElementById('city-div').appendChild(cityButton);
@@ -130,9 +131,15 @@ var searchHandler = function (clickEvent) {
   //   city
   // );
   // document.getElementsByClassName('city-btn').innerText.searchHandler(city);
+
+  for (var i = 0; i < savedCities.length; i++) {
+    if (!city) {
+      savedCities.push(city);
+    }
+  }
   // $(document).ready(function () {
   document
-    .getElementByClassName('city-btn')
+    .getElementsByClassName('city-btn')[0]
     .addEventListener('click', searchHandler);
 };
 
