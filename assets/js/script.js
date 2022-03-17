@@ -108,11 +108,15 @@ var searchHandler = function (clickEvent) {
   }
 
   for (var i = 0; i < savedCities.length; i++) {
-    var cityItem = $('<button>');
-    cityItem.attr('data-cityname', savedCities[i]);
-    cityItem.setAttribute('class', 'city-btn');
-    cityItem.text(savedCities[i]);
-    $('city-div').append(savedCities[i]);
+    // var cityItem = $('<button>');
+
+    var cityItem = document.getElementById('city-btn');
+    if (cityItem) {
+      cityItem.attr('data-cityname', savedCities[i]);
+      cityItem.setAttribute('id', 'city-btn');
+      cityItem.text(savedCities[i]);
+      $('city-div').append(savedCities[i]);
+    }
   }
 
   var cityButton = document.createElement('BUTTON');
@@ -126,11 +130,10 @@ var searchHandler = function (clickEvent) {
   //   city
   // );
   // document.getElementsByClassName('city-btn').innerText.searchHandler(city);
-  $(document).ready(function () {
-    document
-      .getElementByClassName('city-btn')
-      .addEventListener('click', searchHandler);
-  });
+  // $(document).ready(function () {
+  document
+    .getElementByClassName('city-btn')
+    .addEventListener('click', searchHandler);
 };
 
 var searchForm = document.querySelector('#search');
