@@ -9,12 +9,16 @@ html {
 
 body {
   background-color: #e8ecee;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .two-colums {
   display: flex;
   flex-direction: row;
   /* justify-content: space-between; */
+  flex: 1 0 auto;
 }
 
 h1 {
@@ -162,8 +166,10 @@ footer {
   color: white;
   display: flex;
   justify-content: flex-end;
-  position: absolute;
+  /* position: fixed; */
   bottom: 0;
+  margin-top: 2rem;
+  flex-shrink: 0;
 }
 
 .footer-copyright {
