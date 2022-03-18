@@ -14,7 +14,7 @@ body {
   flex-direction: column;
 }
 
-.two-colums {
+.two-columns {
   display: flex;
   flex-direction: row;
   /* justify-content: space-between; */
@@ -233,8 +233,47 @@ footer {
   }
 }
 @media (max-width: 500px) {
+  h1 {
+    font-size: 2rem;
+  }
+  .two-columns {
+    flex-direction: column;
+    align-items: center;
+  }
   .weather-today {
-    width: 93%;
+    width: 100%;
+  }
+  .search-block {
+    margin-left: 0;
+  }
+  .search-column {
+    width: 60%;
+    margin-right: 0;
+  }
+  .weather {
+    margin-left: 0;
+    padding: 1rem;
+  }
+  .five-day-forecast h2 {
+    padding-left: 0;
+  }
+  .five-day-forecast {
+    padding-left: 0;
+  }
+  .row > * {
+    padding-left: 0;
+  }
+  #temp-forecast {
+    font-size: 1rem;
+  }
+  #wind-forecast {
+    font-size: 1rem;
+  }
+  #humidity-forecast {
+    font-size: 1rem;
+  }
+  .footer-copyright h3 {
+    padding: 1rem 1rem 1rem 0.5rem;
   }
 }
 @media (max-width: 376px) {
