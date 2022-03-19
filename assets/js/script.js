@@ -102,42 +102,42 @@ var searchHandler = function (clickEvent) {
   document.getElementById('currentDate').innerHTML =
     currentDate.format('[ (]MM/DD/YYYY[)]');
 
+  var city = false;
   for (var i = 0; i < savedCities.length; i++) {
     if (savedCities[i] !== city) {
-      // something here?
+      city = true;
     }
   }
 
-  // for (var i = 0; i < savedCities.length; i++) {
-  //   if (!city) {
-  //     savedCities.push(city);
-  //   }
-  // }
+  if (!city) {
+    savedCities.push(city);
+  }
+
+  for (var i = 0; i < savedCities.length; i++) {
+    var cityButton = document.createElement('BUTTON');
+    console.log(cityButton);
+    cityButton.innerText = `${city}`;
+    cityButton.classList = 'city-btn';
+    document.getElementById('city-div').appendChild(cityButton);
+  }
 
   // if (savedCities.length) {
   //   savedCities.push(city);
   //   localStorage.setItem('cities', JSON.stringify(savedCities));
   // }
 
-  // for (var i = 0; i < savedCities.length; i++) {
-  //   // var cityItem = $('<button>');
-  //   console.log(savedCities[i]);
-  //   if (savedCities[i] === city) {
-  //     var cityItem = document.getElementsByClassName('city-btn');
-  //     if (cityItem) {
-  //       cityItem.attr('data-cityname', savedCities[i]);
-  //       cityItem.setAttribute('class', 'city-btn');
-  //       cityItem.text(savedCities[i]);
-  //       $('city-div').append(savedCities[i]);
-  //     }
+  // var cityItem = $('<button>');
+  // console.log(savedCities[i]);
+  // if (savedCities[i] === city) {
+  //   var cityItem = document.getElementsByClassName('city-btn');
+  //   if (cityItem) {
+  //     cityItem.attr('data-cityname', savedCities[i]);
+  //     cityItem.setAttribute('class', 'city-btn');
+  //     cityItem.text(savedCities[i]);
+  //     $('city-div').append(savedCities[i]);
   //   }
   // }
 
-  // var cityButton = document.createElement('BUTTON');
-  // console.log(cityButton);
-  // cityButton.innerText = `${city}`;
-  // cityButton.classList = 'city-btn';
-  // document.getElementById('city-div').appendChild(cityButton);
   // why does the below not work for searching based on that city?
   // is it because I need to grab the city name ON that button?
   // document.getElementsByClassName('city-btn').innerHTML.onclick = searchHandler(
