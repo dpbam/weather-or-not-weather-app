@@ -102,16 +102,24 @@ var searchHandler = function (clickEvent) {
   document.getElementById('currentDate').innerHTML =
     currentDate.format('[ (]MM/DD/YYYY[)]');
 
-  var city = false;
+  var exists = false;
   for (var i = 0; i < savedCities.length; i++) {
-    if (savedCities[i] !== city) {
-      city = true;
+    if (savedCities[i] === city) {
+      exists = true;
     }
   }
 
-  if (!city) {
+  if (!exists) {
     savedCities.push(city);
+    localStorage.setItem('cities', JSON.stringify(savedCities));
+
+    console.log(savedCities[i]);
   }
+
+  // if (savedCities.length) {
+  //   savedCities.push(city);
+  //   localStorage.setItem('cities', JSON.stringify(savedCities));
+  // }
 
   for (var i = 0; i < savedCities.length; i++) {
     var cityButton = document.createElement('BUTTON');
@@ -121,22 +129,16 @@ var searchHandler = function (clickEvent) {
     document.getElementById('city-div').appendChild(cityButton);
   }
 
-  // if (savedCities.length) {
-  //   savedCities.push(city);
-  //   localStorage.setItem('cities', JSON.stringify(savedCities));
-  // }
-
-  // var cityItem = $('<button>');
-  // console.log(savedCities[i]);
-  // if (savedCities[i] === city) {
-  //   var cityItem = document.getElementsByClassName('city-btn');
-  //   if (cityItem) {
-  //     cityItem.attr('data-cityname', savedCities[i]);
-  //     cityItem.setAttribute('class', 'city-btn');
-  //     cityItem.text(savedCities[i]);
-  //     $('city-div').append(savedCities[i]);
-  //   }
-  // }
+  var cityItem = $('<button>');
+  if (savedCities[i] === city) {
+    var cityItem = document.getElementsByClassName('city-btn');
+    if (cityItem) {
+      cityItem.attr('data-cityname', savedCities[i]);
+      cityItem.setAttribute('class', 'city-btn');
+      cityItem.text(savedCities[i]);
+      $('city-div').append(savedCities[i]);
+    }
+  }
 
   // why does the below not work for searching based on that city?
   // is it because I need to grab the city name ON that button?
@@ -145,12 +147,13 @@ var searchHandler = function (clickEvent) {
   //   city
   // );
   // document.getElementsByClassName('city-btn').innerText.searchHandler(city);
+};
 
-  // $(document).ready(function () {
+$(document).ready(function () {
   document
     .getElementsByClassName('city-btn')[0]
     .addEventListener('click', searchHandler);
-};
+});
 
 var searchForm = document.querySelector('#search');
 
