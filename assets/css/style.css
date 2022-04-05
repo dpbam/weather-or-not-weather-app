@@ -13,6 +13,10 @@ body {
   min-height: 100vh;
 }
 
+.page-wrap {
+  padding-bottom: 5rem;
+}
+
 .two-colums {
   display: flex;
   flex-direction: row;
@@ -180,6 +184,8 @@ footer {
   padding-top: 1rem;
 }
 
+/* media queries */
+
 @media (max-width: 1280px) {
   .five-day-forecast {
     width: 100%;
@@ -187,9 +193,6 @@ footer {
 }
 
 @media (max-width: 1024px) {
-  .day-card {
-    /* font-size: 1rem; */
-  }
   #temp-forecast {
     font-size: 0.6rem;
   }
