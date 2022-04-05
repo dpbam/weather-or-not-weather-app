@@ -5,6 +5,12 @@
 
 body {
   background-color: #e8ecee;
+  
+}
+
+.page-container {
+  position:relative;
+  min-height: 100vh;
 }
 
 .two-colums {
